@@ -1,0 +1,22 @@
+*{
+  box-sizing: border-box;
+}
+
+/* Individual Card CSS */
+.card{
+padding: 3%;
+height: 410px;
+text-align: center;
+box-shadow: 10px 10px 5px #C0C0C0;
+}
+.card:hover{
+  transform: translateY(-7px);
+    transition: 0.3s;
+}
+
+.card img{
+  width: 250px;
+  height: 250px;
+  box-shadow: 5px 5px 5px #C0C0C0;
+
+}
