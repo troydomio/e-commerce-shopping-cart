@@ -1,6 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 *{
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Promotion CSS */
+.promotion{
+  text-align: center;
+}
+
+
+
+/* Hero Section CSS */
+.hero-text{
+  padding: 20%;
+}
+.parallax-hero{
+ height:600px ;
+background:url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80') no-repeat center;
+background-size: cover;
+background-attachment: fixed;
+opacity: 0.7;
+max-width: 100vw;
+}
+.parallax-hero h1{
+  margin: auto;
+  justify-content: center;
+  font-family: 'Sacramento',sans-serif;
+  font-size: 100px;
+  color: white;
+  margin-left: 30vh;
+}
+
+/* Quote CSS */
+.quote{
+  text-align: center;
+  padding: 3%;
+}
+.quote h1{
+  font-family: 'Sacramento',sans-serif;
+font-size: 50px;
+letter-spacing: 2px;
+}
+
 
 /* Individual Card CSS */
 .card{
