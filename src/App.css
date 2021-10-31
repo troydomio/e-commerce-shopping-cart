@@ -94,18 +94,19 @@ margin-top: 3%;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 .name{
-padding-right: 10%;
-border:#C0C0C0 1px solid;
+margin-right: 10%;
 padding-left: 3%;
 }
 .itemlist{
-  display: flex;
-  text-align: center;
+margin: 2%;
+max-width: 15%;
 }
 .quantity{
-  margin-left: 10%;
-  text-align: center;
-  padding-right: 2%;
+  display: flex;
+  border:#C0C0C0 1px solid;
+}
+.plus{
+  padding-left: 5%;
 }
 
 

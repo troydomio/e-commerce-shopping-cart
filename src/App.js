@@ -5,7 +5,7 @@ import ProductsContainer from './components/ProductsContainer';
 import HeroSection from './components/HeroSection'
 import Promotion from './components/Promotion'
 import Quote from './components/Quote'
-import Navbar from './components/Cart';
+import Cart from './components/Cart';
 import Footer from './components/Footer';
 import {commerce} from './lib/commerce'
 
@@ -24,24 +24,33 @@ function App() {
     setCart(cart);
   }
   const handleAddToCart = async (productId, quantity) =>{
-    const item = await commerce.cart.add(productId,quantity)
+    const item = await commerce.cart.add(productId,quantity);
     setCart(item.cart)
   }
 
+  const handleUpdateCartQty = async (productId, quantity) =>{
+    const response = await commerce.cart.update(productId, {quantity});
+    setCart(response.cart)
+  }
+
+  const handleRemoveFromCart = async (productId) => {
+    const response = commerce.cart.remove(productId);
+    setCart(response.cart)
+  } 
+
+  const handleEmptyCart = () => {
+    const response = commerce.cart.empty();
+    setCart(response.cart)
+  }
+
   useEffect(()=>{fetchProducts();fetchCart();},[])
-  // const test = false || cart.subtotal.raw
-  // console.log(cart.line_items)
-  
-
-  
-
-
+  // if (!cart.total_items) return 'Loading'; //error checker
 
   return (
     <div className="App">
        <Promotion/>
       <HeroSection/>
-      <Navbar totalItems={cart.total_items} cart={cart}/>
+      <Cart totalItems={cart.total_items} cart={cart} handleUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart}/>
       <Quote/>
      <ProductsContainer products={products} handleAddToCart={handleAddToCart }/>
      <Footer/>

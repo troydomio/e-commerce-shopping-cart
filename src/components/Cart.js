@@ -1,20 +1,13 @@
 import { useState} from 'react';
 import {IconButton, Badge} from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
+import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
 
 
-const Navbar = ({totalItems,cart}) => {
 
-  const [cartOpen, setCartOpen] = useState(false);
-
-  // when I click button render cart
-  //cart.subtotal.formatted
-  //cart.total_items
-  //cart.line_items
+const Cart = ({totalItems,cart, handleEmptyCart,handleUpdateCartQty, handleRemoveFromCart}) => {
 
   const handleClick = () => {
-    setCartOpen(true);
-
     const modal = document.getElementById("myModal");
     modal.style.display = "block";
     const span = document.getElementsByClassName("close")[0];
@@ -28,7 +21,9 @@ const Navbar = ({totalItems,cart}) => {
     }
   }
 
-  if (!cart.line_items) return 'Loading';
+  if (!cart.line_items) return 'Loading'; //error checker
+  
+
   const cartItems = cart.line_items
     return (
       <>
@@ -39,6 +34,7 @@ const Navbar = ({totalItems,cart}) => {
           </Badge>
         </IconButton>
         </div>
+
         <div id="myModal" className="modal">
   <div className="modal-content">
     <span className="close">&times;</span>
@@ -47,17 +43,27 @@ const Navbar = ({totalItems,cart}) => {
       cartItems.map((item)=>(
         <div className="itemlist">
           <p className="name">{item.name}</p>
-       <p className="quantity">{item.quantity} </p>
+<div className="quantity">
+          <Button type="button" size="large" className="plus" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
+       <p >{item.quantity} </p>
+       <Button type="button" size="large" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
+</div>
+       <Button type="button" size="large" onClick={() => handleRemoveFromCart(item.id)} >🗑️</Button>
         </div>
       ))
     }
     <p>total items: {totalItems}</p>
     <p>Subtotal:${cart.subtotal.formatted}</p>
-
+    <div>
+  <button onClick={()=>handleEmptyCart}>Empty Cart</button>
+  <button>Checkout</button>
+</div>
   </div>
 </div>
+
+
       </>
     )
 }
 
-export default Navbar
+export default Cart
