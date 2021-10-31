@@ -5,7 +5,7 @@ import ProductsContainer from './components/ProductsContainer';
 import HeroSection from './components/HeroSection'
 import Promotion from './components/Promotion'
 import Quote from './components/Quote'
-import Navbar from './components/Navbar';
+import Navbar from './components/Cart';
 import Footer from './components/Footer';
 import {commerce} from './lib/commerce'
 
@@ -29,14 +29,19 @@ function App() {
   }
 
   useEffect(()=>{fetchProducts();fetchCart();},[])
-  console.log(cart)
+  // const test = false || cart.subtotal.raw
+  // console.log(cart.line_items)
+  
 
-// console.log(products)
+  
+
+
+
   return (
     <div className="App">
        <Promotion/>
       <HeroSection/>
-      <Navbar totalItems={cart.total_items}/>
+      <Navbar totalItems={cart.total_items} cart={cart}/>
       <Quote/>
      <ProductsContainer products={products} handleAddToCart={handleAddToCart }/>
      <Footer/>
