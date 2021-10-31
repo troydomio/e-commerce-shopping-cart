@@ -39,7 +39,18 @@ margin-top: 3%;
 }
 @media only screen and (max-width: 551px) {
   .parallax-hero h1 {
-  margin: 20%;
+  margin-top: 30%;
+   }
+   .parallax-hero{
+    max-width: 100%;
+    margin: 2%;
+   }
+   .footer{
+    max-width: 100%;
+    margin: 2%;
+   }
+   .parallax-hero p{
+     
    }
  }
 
