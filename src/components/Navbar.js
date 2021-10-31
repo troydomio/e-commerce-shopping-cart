@@ -3,11 +3,11 @@ import {IconButton, Badge} from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 
 
-const Navbar = () => {
+const Navbar = ({totalItems}) => {
     return (
         <div className="nav-cart">
          <IconButton aria-label="Show cart items" color="inherit">
-          <Badge badgeContent={2} color="secondary">
+          <Badge badgeContent={totalItems} color="secondary">
             <ShoppingCart />
           </Badge>
         </IconButton>

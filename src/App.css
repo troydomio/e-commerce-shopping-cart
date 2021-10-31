@@ -27,6 +27,7 @@ no-repeat center;
 background-size: cover;
 background-attachment: fixed;
 max-width: 100vw;
+margin-top: 3%;
 }
 .parallax-hero h1{
   margin: auto;
