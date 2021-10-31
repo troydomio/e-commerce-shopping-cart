@@ -4,7 +4,7 @@ import ProductCard from './ProductCard'
 
 const ProductsContainer = ({products, handleAddToCart }) => { 
     return (
-        <main>
+        <main id="shop">
             <Grid container justifyContent="center" spacing={4}>
                 {
                 products.map((product)=>(

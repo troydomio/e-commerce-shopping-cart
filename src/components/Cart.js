@@ -1,11 +1,10 @@
-import { useState} from 'react';
 import {IconButton, Badge} from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
-import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
+import {  Button} from '@material-ui/core';
 
 
 
-const Cart = ({totalItems,cart, handleEmptyCart,handleUpdateCartQty, handleRemoveFromCart}) => {
+const Cart = ({totalItems,cart,handleUpdateCartQty,}) => {
 
   const handleClick = () => {
     const modal = document.getElementById("myModal");
@@ -44,26 +43,19 @@ const Cart = ({totalItems,cart, handleEmptyCart,handleUpdateCartQty, handleRemov
         <div className="itemlist">
           <p className="name">{item.name}</p>
 <div className="quantity">
-          <Button type="button" size="large" className="plus" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
+    <Button type="button" size="large" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</Button> 
        <p >{item.quantity} </p>
-       <Button type="button" size="large" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
+       <Button type="button" size="large" className="plus" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
+       
 </div>
-       <Button type="button" size="large" onClick={() => handleRemoveFromCart(item.id)} >🗑️</Button>
         </div>
       ))
     }
     <p>total items: {totalItems}</p>
     <p>Subtotal:${cart.subtotal.formatted}</p>
-    <div>
-  <button onClick={()=>handleEmptyCart}>Empty Cart</button>
-  <button>Checkout</button>
-</div>
   </div>
 </div>
-
-
       </>
     )
 }
-
 export default Cart

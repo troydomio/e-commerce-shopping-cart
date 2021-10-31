@@ -50,7 +50,7 @@ function App() {
     <div className="App">
        <Promotion/>
       <HeroSection/>
-      <Cart totalItems={cart.total_items} cart={cart} handleUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart}/>
+      <Cart totalItems={cart.total_items} cart={cart} handleUpdateCartQty={handleUpdateCartQty}/>
       <Quote/>
      <ProductsContainer products={products} handleAddToCart={handleAddToCart }/>
      <Footer/>

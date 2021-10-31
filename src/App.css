@@ -37,6 +37,11 @@ margin-top: 3%;
   color: white;  
   text-shadow:5px 5px 10px black;
 }
+@media only screen and (max-width: 551px) {
+  .parallax-hero h1 {
+  margin: 20%;
+   }
+ }
 
 /* Hero Button CSS */
 .parallax-hero p{
@@ -99,11 +104,16 @@ padding-left: 3%;
 }
 .itemlist{
 margin: 2%;
-max-width: 15%;
+max-width: 20%;
 }
 .quantity{
   display: flex;
   border:#C0C0C0 1px solid;
+}
+@media only screen and (max-width: 869px) {
+ .quantity {
+    border:white 1px solid;
+  }
 }
 .plus{
   padding-left: 5%;
